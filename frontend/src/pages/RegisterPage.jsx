@@ -15,8 +15,9 @@ export default function RegisterPage() {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-    setErrors(err => ({ ...err, [e.target.name]: '' }));
+    const { name, value } = e.target;
+    setForm(f => ({ ...f, [name]: value }));
+    setErrors(err => ({ ...err, [name]: '' }));
   };
 
   const handleSubmit = async (e) => {
@@ -41,26 +42,9 @@ export default function RegisterPage() {
     }
   };
 
-  const Field = ({ name, label, type = 'text', placeholder }) => (
-    <div>
-      <label className="block text-sm font-medium text-slate-700 mb-1.5">{label}</label>
-      <input
-        name={name}
-        type={type}
-        value={form[name]}
-        onChange={handleChange}
-        placeholder={placeholder}
-        required
-        className="input"
-      />
-      {errors[name] && <p className="text-red-500 text-xs mt-1">{errors[name][0] ?? errors[name]}</p>}
-    </div>
-  );
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-surface-50 p-6">
       <div className="w-full max-w-md">
-        {/* Logo */}
         <div className="flex items-center gap-2 mb-8">
           <div className="w-9 h-9 bg-brand-600 rounded-lg flex items-center justify-center shadow">
             <Zap size={18} className="text-white" />
@@ -74,10 +58,47 @@ export default function RegisterPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-3">
-              <Field name="first_name" label="First name" placeholder="Jane" />
-              <Field name="last_name" label="Last name" placeholder="Doe" />
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">First name</label>
+                <input
+                  name="first_name"
+                  type="text"
+                  value={form.first_name}
+                  onChange={handleChange}
+                  placeholder="Jane"
+                  required
+                  className="input"
+                />
+                {errors.first_name && <p className="text-red-500 text-xs mt-1">{errors.first_name[0]}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">Last name</label>
+                <input
+                  name="last_name"
+                  type="text"
+                  value={form.last_name}
+                  onChange={handleChange}
+                  placeholder="Doe"
+                  required
+                  className="input"
+                />
+                {errors.last_name && <p className="text-red-500 text-xs mt-1">{errors.last_name[0]}</p>}
+              </div>
             </div>
-            <Field name="email" label="Email" type="email" placeholder="jane@company.com" />
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1.5">Email</label>
+              <input
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="jane@company.com"
+                required
+                className="input"
+              />
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email[0]}</p>}
+            </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1.5">Role</label>
