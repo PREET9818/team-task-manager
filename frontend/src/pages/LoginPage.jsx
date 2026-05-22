@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Eye, EyeOff, Zap, Mail, Lock } from 'lucide-react';
+import { Eye, EyeOff, Zap, Mail, Lock, CheckCircle, Users, BarChart3, Shield } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function LoginPage() {
@@ -13,8 +13,9 @@ export default function LoginPage() {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-    setErrors(err => ({ ...err, [e.target.name]: '' }));
+    const { name, value } = e.target;
+    setForm(f => ({ ...f, [name]: value }));
+    setErrors(err => ({ ...err, [name]: '' }));
   };
 
   const handleSubmit = async (e) => {
@@ -35,54 +36,73 @@ export default function LoginPage() {
     }
   };
 
+  const features = [
+    { icon: CheckCircle, text: 'Create & manage projects easily' },
+    { icon: Users, text: 'Assign tasks to team members' },
+    { icon: BarChart3, text: 'Track progress in real-time' },
+    { icon: Shield, text: 'Role-based access control' },
+  ];
+
   return (
     <div className="min-h-screen flex">
       {/* Left panel */}
-<div className="hidden lg:flex w-1/2 bg-gradient-to-br from-brand-600 to-brand-900 flex-col justify-between p-10">
-  <div className="flex items-center gap-2.5">
-    <div className="w-9 h-9 bg-white/20 rounded-lg flex items-center justify-center">
-      <Zap size={18} className="text-white" />
-    </div>
-    <span className="font-bold text-white text-lg">TaskFlow</span>
-  </div>
-
-  <div>
-    <div className="flex flex-col gap-4 mb-8">
-      {['Create & manage projects', 'Assign tasks to team members', 'Track progress in real-time', 'Role-based access control'].map((feature) => (
-        <div key={feature} className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+      <div className="hidden lg:flex w-1/2 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 flex-col justify-between p-10">
+        {/* Logo */}
+        <div className="flex items-center gap-2.5">
+          <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+            <Zap size={20} className="text-white" />
           </div>
-          <span className="text-white/90 text-sm">{feature}</span>
+          <span className="font-bold text-white text-xl">TaskFlow</span>
         </div>
-      ))}
-    </div>
-    <h2 className="text-4xl font-bold text-white leading-tight mb-4">
-      Manage your team<br />with confidence.
-    </h2>
-    <p className="text-blue-100 text-base leading-relaxed">
-      Assign tasks, track progress, and deliver projects on time — all in one beautifully simple workspace.
-    </p>
-  </div>
 
-  <div className="bg-white/10 rounded-2xl p-5">
-    <p className="text-white/90 text-sm italic leading-relaxed">
-      "TaskFlow helped our team stay organized and deliver projects 40% faster. The role-based access is exactly what we needed."
-    </p>
-    <div className="flex items-center gap-3 mt-4">
-      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-sm font-bold">S</div>
-      <div>
-        <p className="text-white text-sm font-semibold">Sarah Johnson</p>
-        <p className="text-blue-200 text-xs">Project Manager, TechCorp</p>
+        {/* Middle content */}
+        <div>
+          <h2 className="text-4xl font-bold text-white leading-tight mb-3">
+            Manage your team<br />with confidence.
+          </h2>
+          <p className="text-blue-100 text-base leading-relaxed mb-8">
+            Assign tasks, track progress, and deliver projects on time — all in one beautifully simple workspace.
+          </p>
+
+          {/* Feature list */}
+          <div className="space-y-4">
+            {features.map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-3 bg-white/10 rounded-xl px-4 py-3 backdrop-blur-sm">
+                <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Icon size={16} className="text-white" />
+                </div>
+                <span className="text-white text-sm font-medium">{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Testimonial */}
+        <div className="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
+          <div className="flex gap-1 mb-3">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <p className="text-white/90 text-sm italic leading-relaxed">
+            "TaskFlow helped our team stay organized and deliver projects 40% faster."
+          </p>
+          <div className="flex items-center gap-3 mt-4">
+            <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white text-sm font-bold">
+              S
+            </div>
+            <div>
+              <p className="text-white text-sm font-semibold">Sarah Johnson</p>
+              <p className="text-blue-200 text-xs">Project Manager, TechCorp</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
       {/* Right panel */}
-      <div className="flex-1 flex items-center justify-center p-6">
+      <div className="flex-1 flex items-center justify-center p-6 bg-white">
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <div className="lg:hidden flex items-center gap-2 mb-8">
@@ -96,7 +116,6 @@ export default function LoginPage() {
             <h1 className="text-2xl font-bold text-slate-800 mb-1">Welcome back</h1>
             <p className="text-slate-500 text-sm">Sign in to your account to continue</p>
           </div>
-
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
