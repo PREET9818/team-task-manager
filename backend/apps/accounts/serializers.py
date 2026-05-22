@@ -1,4 +1,4 @@
-from rest_framework import serializers
+﻿from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
 from .models import User
@@ -10,8 +10,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', 'password', 'password2', 'role']
-        extra_kwargs = {'role': {'required': False}}
+        fields = ['email', 'first_name', 'last_name', 'password', 'password2']
 
     def validate(self, data):
         if data['password'] != data['password2']:
@@ -21,6 +20,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data.pop('password2')
         password = validated_data.pop('password')
+        validated_data['role'] = 'member'
         user = User(**validated_data)
         user.set_password(password)
         user.save()
