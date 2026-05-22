@@ -150,3 +150,15 @@ CORS_ALLOWED_ORIGINS = config(
     default='http://localhost:5173,http://localhost:3000'
 ).split(',')
 CORS_ALLOW_CREDENTIALS = True
+
+
+
+
+# CSRF Settings
+CSRF_TRUSTED_ORIGINS = [
+    'https://team-task-manager-production-eece.up.railway.app',
+    'https://team-task-manager-production-24a8.up.railway.app',
+]
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
