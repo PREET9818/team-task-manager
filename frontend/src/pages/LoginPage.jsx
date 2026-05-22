@@ -79,11 +79,6 @@ export default function LoginPage() {
             <p className="text-slate-500 text-sm">Sign in to your account to continue</p>
           </div>
 
-          {/* Demo credentials */}
-          <div className="bg-brand-50 border border-brand-200 rounded-xl p-4 mb-6 text-sm">
-            <p className="font-semibold text-brand-700 mb-1">🚀 Quick Demo</p>
-            <p className="text-brand-600">Register a new account to get started, or use your credentials.</p>
-          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
