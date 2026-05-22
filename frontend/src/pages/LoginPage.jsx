@@ -38,8 +38,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left panel */}
-      <div className="hidden lg:flex w-1/2 bg-surface-900 flex-col justify-between p-10">
-        <div className="flex items-center gap-2.5">
+<div className="hidden lg:flex w-1/2 bg-gradient-to-br from-brand-700 to-brand-900 flex-col justify-between p-10">        <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 bg-brand-500 rounded-lg flex items-center justify-center">
             <Zap size={18} className="text-white" />
           </div>
@@ -49,7 +48,7 @@ export default function LoginPage() {
           <h2 className="text-4xl font-bold text-white leading-tight mb-4">
             Manage your team<br />with confidence.
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed">
+          <p className="text-brand-100 text-base leading-relaxed">
             Assign tasks, track progress, and deliver projects on time — all in one beautifully simple workspace.
           </p>
         </div>
@@ -57,8 +56,8 @@ export default function LoginPage() {
           {[['500+', 'Teams'], ['12k+', 'Tasks done'], ['99%', 'Uptime']].map(([val, lbl]) => (
             <div key={lbl}>
               <p className="text-2xl font-bold text-white">{val}</p>
-              <p className="text-sm text-slate-400">{lbl}</p>
-            </div>
+<p className="text-sm text-brand-200">{lbl}</p>            
+</div>
           ))}
         </div>
       </div>
