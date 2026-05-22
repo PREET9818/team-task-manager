@@ -52,14 +52,7 @@ export default function LoginPage() {
             Assign tasks, track progress, and deliver projects on time — all in one beautifully simple workspace.
           </p>
         </div>
-        <div className="flex gap-6">
-          {[['500+', 'Teams'], ['12k+', 'Tasks done'], ['99%', 'Uptime']].map(([val, lbl]) => (
-            <div key={lbl}>
-              <p className="text-2xl font-bold text-white">{val}</p>
-<p className="text-sm text-brand-200">{lbl}</p>            
-</div>
-          ))}
-        </div>
+        
       </div>
 
       {/* Right panel */}
