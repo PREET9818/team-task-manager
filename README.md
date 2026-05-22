@@ -386,6 +386,7 @@ The application features a modern SaaS-style UI built with React and Tailwind CS
 ---
 
 ## 📂 Project Structure
+```
 team-task-manager/
 ├── backend/
 │   ├── apps/
