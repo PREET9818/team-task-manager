@@ -77,9 +77,13 @@ export default function LoginPage() {
           </div>
         </div>
 
-        
-        
-          
+        {/* Bottom text */}
+        <div className="bg-white/10 rounded-2xl p-5 backdrop-blur-sm border border-white/10">
+          <p className="text-white/90 text-sm leading-relaxed">
+            🚀 Built for modern teams who want to ship faster, collaborate better, and stay on top of every task.
+          </p>
+        </div>
+      </div>
 
       {/* Right panel */}
       <div className="flex-1 flex items-center justify-center p-6 bg-white">
