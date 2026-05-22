@@ -1,10 +1,11 @@
-{
+﻿{
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "RAILPACK"
+    "builder": "RAILPACK",
+    "buildCommand": "pip install -r requirements.txt && python3 manage.py collectstatic --no-input"
   },
   "deploy": {
-    "startCommand": "python3 manage.py migrate --no-input && python3 manage.py shell -c \"from apps.accounts.models import User; u, created = User.objects.get_or_create(email='pb496189@gmail.com', defaults={'first_name': 'PREET', 'last_name': 'BHATI', 'role': 'admin', 'is_staff': True, 'is_superuser': True}); u.set_password('BHati123@'); u.role='admin'; u.is_staff=True; u.is_superuser=True; u.save(); print('Admin ready!')\" && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2",
+    "startCommand": "python3 manage.py migrate --no-input && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 3
   }
