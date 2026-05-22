@@ -20,9 +20,23 @@
 
 ## 👨‍💻 About The Developer
 
-**Preet Bhati**
-Final Year B.Tech Student
-Full Stack Developer
+Hi, I'm **Preet**, a Final Year B.Tech student specializing in Artificial Intelligence & Machine Learning, with a strong interest in full-stack development, cybersecurity, and modern software engineering.
+
+I enjoy building scalable, secure, and user-focused web applications that solve real-world problems through clean design and efficient development practices. Passionate about continuous learning, I actively work on practical projects to strengthen my skills in backend systems, frontend development, deployment, and application architecture.
+
+### 🚀 Areas of Interest
+- Full-Stack Web Development
+- Artificial Intelligence & Machine Learning
+- Cybersecurity & Secure Application Development
+- Cloud Deployment & Modern Dev Tools
+
+### 🛠️ Tech Stack
+- **Frontend:** React, Tailwind CSS, Vite
+- **Backend:** Django, Django REST Framework, Python
+- **Database:** PostgreSQL, MySQL
+- **Tools & Platforms:** Git, GitHub, Railway, Postman
+
+Focused on building impactful projects, improving problem-solving skills, and continuously growing as a developer through hands-on experience and real-world development.
 
 ---
 
