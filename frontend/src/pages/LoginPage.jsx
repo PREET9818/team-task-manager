@@ -77,22 +77,9 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* Testimonial */}
         
-          <p className="text-white/90 text-sm italic leading-relaxed">
-            "TaskFlow helped our team stay organized and deliver projects 40% faster."
-          </p>
-          <div className="flex items-center gap-3 mt-4">
-            <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white text-sm font-bold">
-              S
-            </div>
-            <div>
-              <p className="text-white text-sm font-semibold">Sarah Johnson</p>
-              <p className="text-blue-200 text-xs">Project Manager, TechCorp</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        
+          
 
       {/* Right panel */}
       <div className="flex-1 flex items-center justify-center p-6 bg-white">
