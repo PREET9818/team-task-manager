@@ -38,22 +38,48 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left panel */}
-<div className="hidden lg:flex w-1/2 bg-gradient-to-br from-brand-700 to-brand-900 flex-col justify-between p-10">        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-brand-500 rounded-lg flex items-center justify-center">
-            <Zap size={18} className="text-white" />
+<div className="hidden lg:flex w-1/2 bg-gradient-to-br from-brand-600 to-brand-900 flex-col justify-between p-10">
+  <div className="flex items-center gap-2.5">
+    <div className="w-9 h-9 bg-white/20 rounded-lg flex items-center justify-center">
+      <Zap size={18} className="text-white" />
+    </div>
+    <span className="font-bold text-white text-lg">TaskFlow</span>
+  </div>
+
+  <div>
+    <div className="flex flex-col gap-4 mb-8">
+      {['Create & manage projects', 'Assign tasks to team members', 'Track progress in real-time', 'Role-based access control'].map((feature) => (
+        <div key={feature} className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
-          <span className="font-bold text-white text-lg">TaskFlow</span>
+          <span className="text-white/90 text-sm">{feature}</span>
         </div>
-        <div>
-          <h2 className="text-4xl font-bold text-white leading-tight mb-4">
-            Manage your team<br />with confidence.
-          </h2>
-          <p className="text-brand-100 text-base leading-relaxed">
-            Assign tasks, track progress, and deliver projects on time — all in one beautifully simple workspace.
-          </p>
-        </div>
-        
+      ))}
+    </div>
+    <h2 className="text-4xl font-bold text-white leading-tight mb-4">
+      Manage your team<br />with confidence.
+    </h2>
+    <p className="text-blue-100 text-base leading-relaxed">
+      Assign tasks, track progress, and deliver projects on time — all in one beautifully simple workspace.
+    </p>
+  </div>
+
+  <div className="bg-white/10 rounded-2xl p-5">
+    <p className="text-white/90 text-sm italic leading-relaxed">
+      "TaskFlow helped our team stay organized and deliver projects 40% faster. The role-based access is exactly what we needed."
+    </p>
+    <div className="flex items-center gap-3 mt-4">
+      <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-sm font-bold">S</div>
+      <div>
+        <p className="text-white text-sm font-semibold">Sarah Johnson</p>
+        <p className="text-blue-200 text-xs">Project Manager, TechCorp</p>
       </div>
+    </div>
+  </div>
+</div>
 
       {/* Right panel */}
       <div className="flex-1 flex items-center justify-center p-6">
